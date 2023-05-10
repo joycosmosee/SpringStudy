@@ -1,11 +1,13 @@
-package windwish.com.example.hellospring.controller.repository;
+package windwish.com.example.hellospring.repository;
 
-import windwish.com.example.hellospring.controller.domain.Member;
+import org.springframework.stereotype.Repository;
+import windwish.com.example.hellospring.domain.Member;
 
 import java.util.*;
 
 //implements 하는 법1 : implements는 인터페이스(Interface)를 구현하는 것을 나타내는 키워드
 //implements 하는 법2 : 윈도우 : art + enter : 전체 선택
+//@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
     //Map : 키(Key)와 값(Value)의 쌍으로 데이터를 저장하는 자료구조

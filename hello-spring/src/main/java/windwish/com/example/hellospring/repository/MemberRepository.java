@@ -1,6 +1,6 @@
-package windwish.com.example.hellospring.controller.repository;
+package windwish.com.example.hellospring.repository;
 
-import windwish.com.example.hellospring.controller.domain.Member;
+import windwish.com.example.hellospring.domain.Member;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +8,7 @@ import java.util.Optional;
 //회원 객체 저장소
 public interface MemberRepository {
     //회원 객체 저장소 save
+    //save : 구현체
     Member save(Member member);
     //Optional : 파일이 비었을 때 null을 Optional로 감싸서 반환하는 방법을 많이 씀
     // findById : id로 회원을 찾는 방법 만들기

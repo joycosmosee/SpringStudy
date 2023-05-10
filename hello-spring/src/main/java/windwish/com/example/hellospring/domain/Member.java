@@ -1,4 +1,4 @@
-package windwish.com.example.hellospring.controller.domain;
+package windwish.com.example.hellospring.domain;
 
 public class Member {
 

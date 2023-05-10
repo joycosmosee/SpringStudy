@@ -1,12 +1,14 @@
 package windwish.com.example.hellospring.service;
 
-import windwish.com.example.hellospring.controller.domain.Member;
-import windwish.com.example.hellospring.controller.repository.MemberRepository;
-import windwish.com.example.hellospring.controller.repository.MemoryMemberRepository;
+import org.springframework.stereotype.Service;
+import windwish.com.example.hellospring.domain.Member;
+import windwish.com.example.hellospring.repository.MemberRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+//@Service : 순수한 자바를 스프링이 인지
+//@Service
 public class MemberService {
 
     //회원 repository필요
