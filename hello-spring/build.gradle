@@ -15,7 +15,17 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+
+
+	//jdbc설정 - jdbc 템플릿
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	//h2database 클라이언트
+	runtimeOnly 'com.h2database:h2'
+	
 }
 
 tasks.named('test') {

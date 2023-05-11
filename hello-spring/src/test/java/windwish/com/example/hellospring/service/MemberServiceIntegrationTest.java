@@ -1,45 +1,29 @@
 package windwish.com.example.hellospring.service;
 
-        import org.junit.jupiter.api.AfterEach;
-        import org.junit.jupiter.api.BeforeEach;
-        import org.junit.jupiter.api.Test;
-        import windwish.com.example.hellospring.domain.Member;
-        import windwish.com.example.hellospring.repository.MemoryMemberRepository;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
+import windwish.com.example.hellospring.domain.Member;
+import windwish.com.example.hellospring.repository.MemberRepository;
+import windwish.com.example.hellospring.repository.MemoryMemberRepository;
 
-        import static org.assertj.core.api.Assertions.*;
-        import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class MemberServiceTest {
+//@Transactional : 롤백 해줌(다 지워줌)
+@SpringBootTest
+@Transactional
+class MemberServiceIntegrationTest {
 
-    //MemberService 만듦
-//    MemberService memberSerivce = new MemberService();
-    MemberService memberSerivce;
-
-    //101.이런 것을 defendency injection이라고 함
-//    MemoryMemberRepository memberRepository = new MemoryMemberRepository();
-    MemoryMemberRepository memberRepository;
-    //->동작 전 BeforeEach 만들기
-    @BeforeEach
-    public void beforeEach(){
-        //같은 memory repository가 사용됨
-        memberRepository = new MemoryMemberRepository();
-        memberSerivce = new MemberService(memberRepository);
-    }
-
-    //@AfterEach : 메서드 하나 실행될 때마다 동작 실행
-    @AfterEach
-    public void afterEach(){
-        //테스트가 하나씩 실행 될때마다 지워주는 역할
-        memberRepository.clearStroe();
-    }
+    @Autowired MemberService memberSerivce;
+    @Autowired MemberRepository memberRepository;
 
     //회원가입
     @Test
     void join() {
-        //given - when - then 문법
-        //given : 상황이 주어짐
-        //when : 이런 상황
-        //then : 결과
 
         //given
         Member member = new Member();
@@ -90,11 +74,4 @@ class MemberServiceTest {
         //then
     }
 
-    @Test
-    void findMembers() {
-    }
-
-    @Test
-    void findOne() {
-    }
 }
