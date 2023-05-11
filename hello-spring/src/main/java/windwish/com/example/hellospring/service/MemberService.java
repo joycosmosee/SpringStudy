@@ -1,6 +1,7 @@
 package windwish.com.example.hellospring.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import windwish.com.example.hellospring.domain.Member;
 import windwish.com.example.hellospring.repository.MemberRepository;
 
@@ -9,6 +10,7 @@ import java.util.Optional;
 
 //@Service : 순수한 자바를 스프링이 인지
 //@Service
+@Transactional
 public class MemberService {
 
     //회원 repository필요

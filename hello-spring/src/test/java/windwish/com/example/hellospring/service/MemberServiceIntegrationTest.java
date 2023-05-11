@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 import windwish.com.example.hellospring.domain.Member;
 import windwish.com.example.hellospring.repository.MemberRepository;
@@ -22,6 +23,8 @@ class MemberServiceIntegrationTest {
     @Autowired MemberRepository memberRepository;
 
     //회원가입
+    //@Commit : DB 반영 됨
+    //@Commit
     @Test
     void join() {
 
