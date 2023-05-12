@@ -29,6 +29,18 @@ public class MemberService {
      */
     public Long join(Member member){
 
+        long start = System.currentTimeMillis();
+
+        try {
+            validateDuplicateMember(member); //중복 회원 검증
+            memberRepository.save(member);
+            return member.getId();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("join " + timeMs + "ms");
+        }
+
         /**
         <
         //같은 이름이 있는 중복 회원은 안됨
@@ -46,12 +58,12 @@ public class MemberService {
 //            });
         //위 코드를 다시 정리
         //블럭 : Extract Method : Ctrl + Alt + M
-        validateDuplicateMember(member); //중복회원 검증 메서드
+        //validateDuplicateMember(member); //중복회원 검증 메서드
 
         //회원 가입
-        memberRepository.save(member);
+        //memberRepository.save(member);
         //Id 반환
-        return member.getId();
+        //return member.getId();
     }
 
     private void validateDuplicateMember(Member member) {
